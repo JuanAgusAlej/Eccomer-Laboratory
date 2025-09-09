@@ -1,8 +1,10 @@
 import { fetchData, fetchDataDetallado } from "./api.js";
+import { cardProductoList } from "./componente/cardProducto.js";
 
 const listaDeProductos = async () => {
   try {
     const products = await fetchData();
+    cardProductoList(products);
     return products;
   } catch (err) {
     console.error(err);
