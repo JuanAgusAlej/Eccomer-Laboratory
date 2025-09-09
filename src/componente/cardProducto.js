@@ -24,3 +24,35 @@ const cardProductoList = (products) => {
 };
 
 export { cardProductoList };
+
+const cartDrawer = () => {
+  return `
+    <div class='offcanvas offcanvas-end'
+         data-bs-scroll='true'
+         data-bs-backdrop='false'
+         tabindex='-1'
+         id='cartDrawer'
+         aria-labelledby='cartDrawerLabel'
+         style='width: 420px;'>
+      <div class='offcanvas-header'>
+        <h5 class='offcanvas-title' id='cartDrawerLabel'>Tu carrito</h5>
+        <button type='button' class='btn-close' data-bs-dismiss='offcanvas' aria-label='Cerrar'></button>
+      </div>
+      <div class='offcanvas-body d-flex flex-column'>
+        <div id='cartItems' class='list-group flex-grow-1 overflow-auto'>
+          <!-- Aquí tus productos -->
+        </div>
+        <div class='mt-3 border-top pt-3 d-flex justify-content-between'>
+          <span class='fw-semibold'>Total:</span>
+          <span class='fw-semibold' id='cartTotal'>$0</span>
+        </div>
+        <div class='mt-3'>
+          <button class='btn btn-primary w-100 mb-2' id='btnCheckout'>Finalizar compra</button>
+          <button class='btn btn-danger w-100' id='btnClearCart'>Eliminar todos los productos</button>
+        </div>
+      </div>
+    </div>
+  `;
+};
+
+export { cartDrawer };
