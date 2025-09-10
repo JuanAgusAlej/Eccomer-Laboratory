@@ -1,0 +1,21 @@
+name: Protect workflow file
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+      - test # opcional, agregalo si querés proteger en test también
+
+jobs:
+  check-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ensure workflow file exists
+        run: |
+          if [ ! -f ".github/workflows/promote-develop-to-test.yml" ]; then
+            echo "❌ ERROR: Falta el archivo .github/workflows/promote-develop-to-test.yml"
+            exit 1
+          fi
