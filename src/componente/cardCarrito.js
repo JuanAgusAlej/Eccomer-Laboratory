@@ -11,9 +11,9 @@ const cardCarrito = (product) => {
           <button class="btn btn-sm btn-outline-danger btn-remove">&times;</button>
         </div>
         <div class="d-flex align-items-center gap-2 mt-2">
-          <button class="btn btn-sm btn-outline-secondary btn-dec" ${product.qty <= 1 ? 'disabled' : ''}>-</button>
+          <button class="btn btn-sm btn-outline-secondary btn-restar" ${product.qty <= 1 ? 'disabled' : ''}>-</button>
           <span class="fw-semibold qty">${product.qty}</span>
-          <button class="btn btn-sm btn-outline-secondary btn-inc">+</button>
+          <button class="btn btn-sm btn-outline-secondary btn-sumar">+</button>
           <span class="ms-auto fw-semibold line-total">$ ${(product.price * product.qty)}</span>
         </div>
       </div>
