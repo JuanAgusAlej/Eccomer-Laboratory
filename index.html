@@ -16,6 +16,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       crossorigin="anonymous"
     />
+    <link 
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" 
+    />
     <title>Page Title</title>
     <script src="src/index.js"></script>
   </head>
@@ -101,6 +105,7 @@
       </div>
     </div>
 
+    <!--Modal detalle del producto-->
     <div class="modal fade" id="detalleProducto" tabindex="-1" aria-labelledby="detalleProductoLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content bg-light text-dark">
@@ -122,6 +127,54 @@
             <button class="btn btn-success w-100 mt-3">AGREGAR AL CARRITO</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal de confirmacion de compra-->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-light text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmModalLabel">¿Confirmás tu compra?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <p>Estás por finalizar tu pedido. ¿Querés continuar?</p>
+        <div class="d-flex justify-content-between border-top pt-2">
+          <span class="fw-semibold">Total:</span>
+          <span class="fw-semibold" id="confirmTotal">$0</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" id="btnConfirmPurchase">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal de compra finalizada-->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center bg-light rounded-4 shadow">
+      <div class="modal-header border-0">
+        <h5 class="modal-title w-100 fw-bold" id="successModalLabel">Compra Finalizada</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <div class="bg-success rounded-circle d-inline-flex justify-content-center align-items-center" style="width: 80px; height: 80px;">
+            <i class="bi bi-check-lg text-white" style="font-size: 2rem;"></i>
+          </div>
+        </div>
+        <p class="fs-6">Su compra se ha procesado con éxito.</p>
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="button" class="btn btn-primary px-4" id="btnContinueShopping" data-bs-dismiss="modal">
+          Continuar Comprando
+        </button>
       </div>
     </div>
   </div>

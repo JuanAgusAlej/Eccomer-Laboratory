@@ -105,6 +105,36 @@ document.addEventListener('click', (e) => {
     return;
   }
   if (e.target && e.target.id === 'btnCheckout') {
-    limparCart();
+  const cart = getCart();
+
+  if (!cart || cart.length === 0) {
+      alert('Tu carrito está vacío. Agregá productos antes de finalizar la compra.');
+      return;
+    }
+
+  const total = cart.reduce((s, p) => s + (Number(p.price) || 0) * (Number(p.qty) || 0), 0);
+  document.getElementById('confirmTotal').textContent = `$${total.toFixed(2)}`;
+
+  const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+  confirmModal.show();
+  return;
   }
+
 });
+
+document.getElementById('btnConfirmPurchase')?.addEventListener('click', () => {
+  limparCart();
+  renderCart();
+
+  const confirmModal = bootstrap.Modal.getInstance(document.getElementById('confirmModal'));
+  confirmModal.hide();
+
+  const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+  successModal.show();
+});
+
+document.getElementById('btnContinueShopping')?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+
