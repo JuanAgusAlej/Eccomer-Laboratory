@@ -48,6 +48,15 @@ const mostrarModalProducto = async (id) => {
             price: btnAgregar.dataset.price || producto.price,
             image: btnAgregar.dataset.image || producto.image
           });
+
+          modal.hide();
+          const txt  = document.getElementById('producto-agregado');
+          if (txt) txt.textContent = ` Se agrego "${producto.title}" agregado al carrito.`;
+          const confirmModalEl = document.getElementById('modal-producto-agregado');
+          if (confirmModalEl) {
+            const confirmModal = new bootstrap.Modal(confirmModalEl);
+            confirmModal.show();
+          }
         } catch (error) {
           console.error("Error al agregar el producto:", error);
         }
