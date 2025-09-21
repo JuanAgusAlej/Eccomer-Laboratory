@@ -76,6 +76,12 @@ const renderCart = () => {
     const total = cart.reduce((s, p) => s + (Number(p.price) || 0) * (Number(p.qty) || 0), 0);
     totalCard.textContent = `$${total.toFixed(2)}`;
   }
+
+  const badge = document.getElementById('cardBadge');
+  if (badge) {
+    badge.textContent = cart.length > 0 ? cart.length : '';
+    badge.classList.toggle('visually-hidden', cart.length === 0);
+  }
 };
 
 document.addEventListener('DOMContentLoaded', renderCart);
