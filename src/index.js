@@ -145,9 +145,14 @@ document.addEventListener('click', (e) => {
   const cart = getCart();
 
   if (!cart || cart.length === 0) {
-      alert('Tu carrito está vacío. Agregá productos antes de finalizar la compra.');
-      return;
-    }
+    const mensaje = document.getElementById('mensajeCarritoVacio');
+    mensaje.classList.remove('d-none');
+
+    setTimeout(() => {
+      mensaje.classList.add('d-none');
+    }, 3000);
+    return;
+  }
 
   const total = cart.reduce((s, p) => s + (Number(p.price) || 0) * (Number(p.qty) || 0), 0);
   document.getElementById('confirmTotal').textContent = `$${total.toFixed(2)}`;
@@ -170,8 +175,5 @@ document.getElementById('btnConfirmPurchase')?.addEventListener('click', () => {
   successModal.show();
 });
 
-document.getElementById('btnContinueShopping')?.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
 
 
