@@ -46,4 +46,4 @@ const SearchProduct = async (text) => {
   }
 };
 
-export { fetchData, fetchDataDetallado };
+export { fetchData, fetchDataDetallado, SearchProduct };

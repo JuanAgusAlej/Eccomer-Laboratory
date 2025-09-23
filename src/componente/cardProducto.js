@@ -27,7 +27,21 @@ export { cardProductoList };*/
 
 const cardProductoList = (products) => {
   const htmlcard = document.querySelector("#products-grid");
-  htmlcard.innerHTML = `<h2 class="h4 mb-3">Productos</h2>`; // Limpia y agrega título
+
+  htmlcard.innerHTML = '';
+
+  if (!products || products.length === 0) {
+        htmlcard.innerHTML = `
+            <div class="col-12" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+              <div class="text-center">
+                <h4 class="text-primary"> No se encontraron productos</h4>
+              </div>
+            </div>
+        `;
+        return;
+    }
+
+  htmlcard.innerHTML = `<h2 class="h4 mb-3">Productos</h2>`;
 
   products.forEach((product) => {
     const col = document.createElement("div");
@@ -43,7 +57,6 @@ const cardProductoList = (products) => {
       </div>
     `;
 
-    // Evento para abrir el modal
     col.querySelector("button").addEventListener("click", () => {
       import("../index.js").then((module) => {
         module.mostrarModalProducto(product.id);
