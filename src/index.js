@@ -55,6 +55,10 @@ const mostrarModalProducto = async (id) => {
     document.getElementById("precioProducto").textContent = `$${producto.price}`;
     document.getElementById("descripcionProducto").textContent = producto.description;
 
+    if (window.innerWidth < 576) {
+      document.getElementById('imagenProducto').style.maxHeight = '300px';
+    }
+
     const modal = new bootstrap.Modal(document.getElementById("detalleProducto"));
     const btnAgregar = document.querySelector('#detalleProducto .btn-success');
     if (btnAgregar) {
