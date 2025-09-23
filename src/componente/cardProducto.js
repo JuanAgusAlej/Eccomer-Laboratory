@@ -1,45 +1,18 @@
-/*  const cardProductoList = (products) => {
-  const htmlcard = document.querySelector("#products-grid");
-  htmlcard.innerHTML += `<h2 class="h4 mb-3">Productos</h2>`;
-
-  products.map((product) => {
-    htmlcard.innerHTML += `
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card h-100 p-1 rounded-4">
-            <img
-              width="75"
-              src="${product.image}"
-              class="card-img-top"
-              alt="Producto"
-            />
-            <div class="card-body">
-              <h5 class="card-title">
-                ${product.title}
-              </h5>
-            </div>
-          </div>
-        </div>
-        `;
-  });
-};
-
-export { cardProductoList };*/
-
 const cardProductoList = (products) => {
   const htmlcard = document.querySelector("#products-grid");
 
-  htmlcard.innerHTML = '';
+  htmlcard.innerHTML = "";
 
   if (!products || products.length === 0) {
-        htmlcard.innerHTML = `
+    htmlcard.innerHTML = `
             <div class="col-12" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
               <div class="text-center">
                 <h4 class="text-primary"> No se encontraron productos</h4>
               </div>
             </div>
         `;
-        return;
-    }
+    return;
+  }
 
   htmlcard.innerHTML = `<h2 class="h4 mb-3">Productos</h2>`;
 
@@ -49,7 +22,7 @@ const cardProductoList = (products) => {
 
     col.innerHTML = `
       <div class="card h-100 p-1 rounded-4">
-        <img width="75" src="${product.image}" class="card-img-top" alt="${product.title}" />
+        <img width="75%" src="${product.image}" class="align-self-center" alt="${product.title}" />
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${product.title}</h5>
           <button class="btn btn-primary mt-auto" data-id="${product.id}">Ver detalle</button>
