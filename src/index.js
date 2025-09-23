@@ -1,4 +1,4 @@
-import { fetchData, fetchDataDetallado } from "./api.js";
+import { fetchData, fetchDataDetallado, SearchProduct } from "./api.js";
 import { cardProductoList } from "./componente/cardProducto.js";
 import { cardCarrito } from "./componente/cardCarrito.js";
 import { agregarItem, incrementarItem, restarItem, borrarItem, limparCart, getCart } from "./localStorage.js";
@@ -12,6 +12,28 @@ const listaDeProductos = async () => {
     console.error(err);
   }
 };
+
+const setupSearch = () => {
+  const searchInput = document.querySelector('input[type="search"]');
+  if (!searchInput) return;
+
+  searchInput.addEventListener('input', (e) => {
+    const searchText = e.target.value.trim();
+
+    if (searchText.length >= 1) {
+      SearchProduct(searchText)
+        .then(filteredProducts => {
+          cardProductoList(filteredProducts);
+        })
+        .catch(error => {
+          console.error("Error en búsqueda:", error);
+        });
+    } else if (searchText.length === 0) {
+      listaDeProductos();
+    }
+  });
+};
+
 
 const productoDetallado = async (id) => {
   try {
@@ -72,7 +94,7 @@ export { mostrarModalProducto };
 
 document.addEventListener("DOMContentLoaded", () => {
   listaDeProductos();
-  productoDetallado(1);
+  setupSearch();
 });
 
 const renderCart = () => {
