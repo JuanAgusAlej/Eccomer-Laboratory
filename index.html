@@ -16,9 +16,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       crossorigin="anonymous"
     />
-    <link 
+    <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" 
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
     <title>Page Title</title>
     <script src="src/index.js"></script>
@@ -42,16 +42,29 @@
           <ul class="navbar-nav w-100 d-flex justify-content-between">
             <li class="nav-item">
               <div class="input-group w-100 mx-auto my-3">
-                <input type="search" class="form-control border-1" placeholder="Buscar productos...">
+                <input
+                  type="search"
+                  class="form-control border-1"
+                  placeholder="Buscar productos..."
+                />
                 <span class="input-group-text bg-white border-1">
                   <i class="bi bi-search"></i>
                 </span>
               </div>
             </li>
-            <li class="nav-item my-2 my-sm-0">
-              <a class="nav-link d-inline-block position-relative" href="#" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" aria-controls="cartDrawer">
+            <li class="nav-item my-2 my-sm-0 d-flex align-items-center">
+              <a
+                class="nav-link d-inline-block position-relative"
+                href="#"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#cartDrawer"
+                aria-controls="cartDrawer"
+              >
                 <i class="fa-solid fa-cart-shopping"></i>
-                <span id="cardBadge"  class="position-absolute top-10 start-70 translate-middle badge rounded-pill bg-danger visually-hidden"></span>
+                <span
+                  id="cardBadge"
+                  class="position-absolute top-10 start-70 translate-middle badge rounded-pill bg-danger visually-hidden"
+                ></span>
               </a>
             </li>
           </ul>
@@ -60,145 +73,233 @@
     </nav>
 
     <main class="container py-4" id="main-content">
-      <div class="row g-3" id="products-grid">
-        <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card h-100">
-            <img
-              src="images/foto-remera.jpeg"
-              class="card-img-top"
-              alt="Producto"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Nombre del producto</h5>
-            </div>
-          </div>
-        </div> -->
-      </div>
-    </main>
-    <div class="offcanvas offcanvas-end"
-         data-bs-scroll="true"
-         data-bs-backdrop="false"
-         tabindex="-1"
-         id="cartDrawer"
-         aria-labelledby="cartDrawerLabel"
-         style="width: 420px;">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="cartDrawerLabel">Tu carrito</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
-      </div>
-      <div class="offcanvas-body d-flex flex-column">
-        <div id="cartItems" class="list-group flex-grow-1 overflow-auto">
-          <!-- Aquí tus productos -->
+      <div class="row g-3" id="products-grid"></div>
+      <div
+        class="offcanvas offcanvas-end"
+        data-bs-scroll="true"
+        data-bs-backdrop="false"
+        tabindex="-1"
+        id="cartDrawer"
+        aria-labelledby="cartDrawerLabel"
+        style="width: 420px"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="cartDrawerLabel">Tu carrito</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Cerrar"
+          ></button>
         </div>
-        <div class="mt-3 border-top pt-3 d-flex justify-content-between">
-          <span class="fw-semibold">Total:</span>
-          <span class="fw-semibold" id="cartTotal">$0</span>
-        </div>
-        <div class="mt-3">
-          <button class="btn btn-primary w-100 mb-2" id="btnCheckout">Finalizar compra</button>
-          <button class="btn btn-danger w-100" id="btnClearCart">Eliminar todos los productos</button>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="modal-producto-agregado" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-center bg-light rounded-4 shadow">
-          <div class="modal-header border-0">
-            <h5 class="modal-title w-100 fw-bold" id="producto-agregado"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <div class="offcanvas-body d-flex flex-column">
+          <div id="cartItems" class="list-group flex-grow-1 overflow-auto">
+            <!-- Aquí tus productos -->
           </div>
-          <div class="modal-body">
-            <div class="mb-3">
-                <div class="bg-success rounded-circle d-inline-flex justify-content-center align-items-center" style="width: 80px; height: 80px;">
-                <i class="fa-solid fa-check text-white" style="font-size: 2rem;"></i>
-              </div>
-            </div>
-            <p class="fs-6">Producto agregado al carrito.</p>
+          <div class="mt-3 border-top pt-3 d-flex justify-content-between">
+            <span class="fw-semibold">Total:</span>
+            <span class="fw-semibold" id="cartTotal">$0</span>
           </div>
-          <div class="modal-footer border-0 justify-content-center">
-            <button type="button" class="btn btn-primary px-4" id="btnContinueShopping" data-bs-dismiss="modal">
-              Continuar Comprando
+          <div class="mt-3">
+            <button class="btn btn-primary w-100 mb-2" id="btnCheckout">
+              Finalizar compra
+            </button>
+            <button class="btn btn-danger w-100" id="btnClearCart">
+              Eliminar todos los productos
             </button>
           </div>
         </div>
       </div>
-    </div>
-
-    <!--Modal detalle del producto-->
-    <div class="modal fade" id="detalleProducto" tabindex="-1" aria-labelledby="detalleProductoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content bg-light text-dark">
-      <div class="modal-header">
-        <h5 class="modal-title" id="detalleProductoLabel">Cargando...</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <img id="imagenProducto" src="" alt="Imagen del producto" class="img-fluid rounded">
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="d-flex justify-content-between align-items-start">
-              <h5 id="nombreProducto">Nombre</h5>
-              <span class="badge bg-primary fs-5" id="precioProducto">$0</span>
+      <div
+        class="modal fade"
+        id="modal-producto-agregado"
+        tabindex="-1"
+        aria-labelledby="successModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content text-center bg-light rounded-4 shadow">
+            <div class="modal-header border-0">
+              <h5 class="modal-title w-100 fw-bold" id="producto-agregado"></h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+              ></button>
             </div>
-            <p id="descripcionProducto">Descripción...</p>
-            <button class="btn btn-success w-100 mt-3">AGREGAR AL CARRITO</button>
+            <div class="modal-body">
+              <div class="mb-3">
+                <div
+                  class="bg-success rounded-circle d-inline-flex justify-content-center align-items-center"
+                  style="width: 80px; height: 80px"
+                >
+                  <i
+                    class="fa-solid fa-check text-white"
+                    style="font-size: 2rem"
+                  ></i>
+                </div>
+              </div>
+              <p class="fs-6">Producto agregado al carrito.</p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+              <button
+                type="button"
+                class="btn btn-primary px-4"
+                id="btnContinueShopping"
+                data-bs-dismiss="modal"
+              >
+                Continuar Comprando
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!--Modal de confirmacion de compra-->
-<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-light text-dark">
-      <div class="modal-header">
-        <h5 class="modal-title" id="confirmModalLabel">¿Confirmás tu compra?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <p>Estás por finalizar tu pedido. ¿Querés continuar?</p>
-        <div class="d-flex justify-content-between border-top pt-2">
-          <span class="fw-semibold">Total:</span>
-          <span class="fw-semibold" id="confirmTotal">$0</span>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success" id="btnConfirmPurchase">Confirmar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--Modal de compra finalizada-->
-<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content text-center bg-light rounded-4 shadow">
-      <div class="modal-header border-0">
-        <h5 class="modal-title w-100 fw-bold" id="successModalLabel">Compra Finalizada</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <div class="bg-success rounded-circle d-inline-flex justify-content-center align-items-center" style="width: 80px; height: 80px;">
-            <i class="bi bi-check-lg text-white" style="font-size: 2rem;"></i>
+      <!--Modal detalle del producto-->
+      <div
+        class="modal fade"
+        id="detalleProducto"
+        tabindex="-1"
+        aria-labelledby="detalleProductoLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content bg-light text-dark">
+            <div class="modal-header">
+              <h5 class="modal-title" id="detalleProductoLabel">Cargando...</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+              ></button>
+            </div>
+            <div class="modal-body d-flex f">
+              <div class="row justify-content-center align-items-center g-3">
+                <div class="col-6">
+                  <img
+                    id="imagenProducto"
+                    src=""
+                    alt="Imagen del producto"
+                    class="img-fluid rounded d-flex align-items-center"
+                  />
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <h5 id="nombreProducto">Nombre</h5>
+                    <span class="badge bg-primary fs-5" id="precioProducto"
+                      >$0</span
+                    >
+                  </div>
+                  <p id="descripcionProducto">Descripción...</p>
+                  <button class="btn btn-success w-100 mt-3">
+                    AGREGAR AL CARRITO
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <p class="fs-6">Su compra se ha procesado con éxito.</p>
       </div>
-      <div class="modal-footer border-0 justify-content-center">
-        <button type="button" class="btn btn-primary px-4" id="btnContinueShopping" data-bs-dismiss="modal">
-          Continuar Comprando
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 
+      <!--Modal de confirmacion de compra-->
+      <div
+        class="modal fade"
+        id="confirmModal"
+        tabindex="-1"
+        aria-labelledby="confirmModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-light text-dark">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmModalLabel">
+                ¿Confirmás tu compra?
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p>Estás por finalizar tu pedido. ¿Querés continuar?</p>
+              <div class="d-flex justify-content-between border-top pt-2">
+                <span class="fw-semibold">Total:</span>
+                <span class="fw-semibold" id="confirmTotal">$0</span>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                class="btn btn-success"
+                id="btnConfirmPurchase"
+              >
+                Confirmar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Modal de compra finalizada-->
+      <div
+        class="modal fade"
+        id="successModal"
+        tabindex="-1"
+        aria-labelledby="successModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content text-center bg-light rounded-4 shadow">
+            <div class="modal-header border-0">
+              <h5 class="modal-title w-100 fw-bold" id="successModalLabel">
+                Compra Finalizada
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <div
+                  class="bg-success rounded-circle d-inline-flex justify-content-center align-items-center"
+                  style="width: 80px; height: 80px"
+                >
+                  <i
+                    class="bi bi-check-lg text-white"
+                    style="font-size: 2rem"
+                  ></i>
+                </div>
+              </div>
+              <p class="fs-6">Su compra se ha procesado con éxito.</p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+              <button
+                type="button"
+                class="btn btn-primary px-4"
+                id="btnContinueShopping"
+                data-bs-dismiss="modal"
+              >
+                Continuar Comprando
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -206,8 +307,6 @@
       crossorigin="anonymous"
     ></script>
 
-
     <script type="module" src="./src/index.js"></script>
-
   </body>
 </html>
