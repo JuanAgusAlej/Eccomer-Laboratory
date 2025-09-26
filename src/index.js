@@ -55,6 +55,10 @@ const mostrarModalProducto = async (id) => {
     document.getElementById("precioProducto").textContent = `$${producto.price}`;
     document.getElementById("descripcionProducto").textContent = producto.description;
 
+    if (window.innerWidth < 576) {
+      document.getElementById('imagenProducto').style.maxHeight = '300px';
+    }
+
     const modal = new bootstrap.Modal(document.getElementById("detalleProducto"));
     const btnAgregar = document.querySelector('#detalleProducto .btn-success');
     if (btnAgregar) {
@@ -145,9 +149,14 @@ document.addEventListener('click', (e) => {
   const cart = getCart();
 
   if (!cart || cart.length === 0) {
-      alert('Tu carrito está vacío. Agregá productos antes de finalizar la compra.');
-      return;
-    }
+    const mensaje = document.getElementById('mensajeCarritoVacio');
+    mensaje.classList.remove('d-none');
+
+    setTimeout(() => {
+      mensaje.classList.add('d-none');
+    }, 3000);
+    return;
+  }
 
   const total = cart.reduce((s, p) => s + (Number(p.price) || 0) * (Number(p.qty) || 0), 0);
   document.getElementById('confirmTotal').textContent = `$${total.toFixed(2)}`;
@@ -170,8 +179,5 @@ document.getElementById('btnConfirmPurchase')?.addEventListener('click', () => {
   successModal.show();
 });
 
-document.getElementById('btnContinueShopping')?.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
 
 
