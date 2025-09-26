@@ -66,13 +66,6 @@ La API es pública y permite CORS. Requiere conexión a Internet.
 
 ## 👥 Participantes del TP
 
-Completar este apartado describiendo el rol y aportes de cada integrante, adjuntando su username de GitHub. Ejemplos de formato sugerido:
-
-- Nombre Apellido — Rol/Aportes breves — GitHub: @usuario
-  - Aportes: “Implementé búsqueda y cache”, “armé el modal de detalle”, “carrito y persistencia”, etc.
-
-Sugerencia: una tabla también funciona bien si lo prefieren.
-
 | Integrante              | GitHub                          |
 | ----------------------- | ------------------------------- |
 | Luis Ortega             | https://github.com/Ortega-Luis  |
